@@ -1,0 +1,30 @@
+{
+  "name": "koa-rethinkdb-base",
+  "version": "0.1.0",
+  "description": "koa, rethinkdb, auth base project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server/index.js",
+    "start": "node ./src/server/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "koa",
+    "rethinkdb"
+  ],
+  "author": "Vincent Abruzzo",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1",
+    "rethinkdbdash": "^2.3.31"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.4",
+    "supertest": "^3.0.0"
+  }
+}
