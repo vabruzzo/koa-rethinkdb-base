@@ -8,10 +8,7 @@
     "start": "node ./src/server/index.js",
     "test": "jest"
   },
-  "keywords": [
-    "koa",
-    "rethinkdb"
-  ],
+  "keywords": ["koa", "rethinkdb"],
   "author": "Vincent Abruzzo",
   "license": "GPL-2.0",
   "dependencies": {
