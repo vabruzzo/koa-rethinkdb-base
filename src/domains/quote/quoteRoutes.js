@@ -6,15 +6,12 @@ const router = new Router();
 const BASE_URL = `/api/v1/quotes`;
 
 router.get(BASE_URL, async ctx => {
-  try {
-    const quotes = await Quote.all(ctx.db);
-    ctx.body = {
-      status: 'success',
-      data: quotes,
-    };
-  } catch (err) {
-    ctx.throw(err);
-  }
+  const quotes = await Quote.all(ctx.db);
+
+  ctx.body = {
+    status: 'success',
+    data: quotes,
+  };
 });
 
 router.get(`${BASE_URL}/:id`, async ctx => {
@@ -38,7 +35,7 @@ router.get(`${BASE_URL}/:id`, async ctx => {
 router.post(`${BASE_URL}`, async ctx => {
   try {
     const quote = await Quote.create(ctx.db, ctx.request.body);
-    if (!quote) {
+    if (!quote.author) {
       throw new Error('Something went wrong.');
     }
     ctx.status = 201;

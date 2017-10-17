@@ -66,6 +66,13 @@ describe('api/index/quotes', () => {
       expect(createdQuote.author).toEqual(quote.author);
       expect(createdQuote.content).toEqual(createdQuote.content);
     });
+
+    test('create 400', async () => {
+      const response = await request(server).post(BASE_URL);
+
+      expect(response.status).toEqual(400);
+      expect(response.type).toEqual('application/json');
+    });
   });
 
   describe('PUT /', () => {
@@ -93,7 +100,7 @@ describe('api/index/quotes', () => {
       expect(updatedQuote.content).toEqual(quoteUpdate.content);
     });
 
-    test('update 400', async () => {
+    test('update 404', async () => {
       const quoteUpdate = {
         author: 'test-4',
         content: 'content-4',
@@ -128,7 +135,6 @@ describe('api/index/quotes', () => {
       expect(deletedQuote.author).toEqual(createdQuote.author);
       expect(deletedQuote.content).toEqual(createdQuote.content);
     });
-
     test('delete 404', async () => {
       const response = await request(server).delete(`${BASE_URL}/0`);
 
