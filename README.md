@@ -7,17 +7,17 @@ Boilerplate for Koa/Rethinkdb apps with:
 ## Development
 
 - Install [Rethinkdb](https://www.rethinkdb.com/docs/install/)
-- Run `rethinkdb` and create a development database (update configs)
+- Run `rethinkdb` and create a development database
 - Run `npm run dev` to start the server via nodemon
 
 ## Production
 
-- Create production database (update configs)
+- Create production database
 - Run `npm start`
 
 ## Testing
 
-- Create test database (update configs)
+- Create test database
 - Run `npm test` to run Jest test suite
 - Run `npm run coverage` to test and produce code coverage report. Report is served and URL is copied to clipboard automatically.
 

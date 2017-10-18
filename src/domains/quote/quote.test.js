@@ -1,5 +1,6 @@
 const request = require('supertest');
-const r = require('rethinkdbdash')({ silent: true });
+const dbConfig = require('../../db/connection');
+const r = require('rethinkdbdash')({ ...dbConfig, silent: true });
 
 const server = require('../../app').listen();
 
@@ -135,6 +136,7 @@ describe('api/index/quotes', () => {
       expect(deletedQuote.author).toEqual(createdQuote.author);
       expect(deletedQuote.content).toEqual(createdQuote.content);
     });
+
     test('delete 404', async () => {
       const response = await request(server).delete(`${BASE_URL}/0`);
 
