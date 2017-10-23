@@ -8,10 +8,12 @@
     "start": "NODE_ENV=production node ./src/server.js",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "jest --verbose",
-    "coverage":
-      "jest --collectCoverage && ./node_modules/.bin/serve ./coverage/lcov-report"
+    "coverage": "jest --collectCoverage && ./node_modules/.bin/serve ./coverage/lcov-report"
   },
-  "keywords": ["koa", "rethinkdb"],
+  "keywords": [
+    "koa",
+    "rethinkdb"
+  ],
   "author": "Vincent Abruzzo",
   "license": "GPL-2.0",
   "dependencies": {

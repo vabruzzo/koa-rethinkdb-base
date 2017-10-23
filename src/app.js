@@ -19,6 +19,10 @@ app.context.db = r({ ...dbConfig, silent: true });
 
 // middlewares
 app.use(bodyParser());
+app.use(async (ctx, next) => {
+  ctx.state.data = {};
+  await next();
+});
 app.use(indexRoutes.routes());
 app.use(quoteRoutes.routes());
 
