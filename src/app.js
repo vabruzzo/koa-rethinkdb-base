@@ -20,7 +20,7 @@ app.context.db = r({ ...dbConfig, silent: true });
 // middlewares
 app.use(bodyParser());
 app.use(async (ctx, next) => {
-  ctx._locals = {};
+  ctx.state.data = {};
   await next();
 });
 app.use(indexRoutes.routes());

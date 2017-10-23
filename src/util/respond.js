@@ -1,6 +1,6 @@
 module.exports = ctx => {
   ctx.body = {
     status: 'success',
-    data: ctx._locals,
+    data: ctx.state.data,
   };
 };
