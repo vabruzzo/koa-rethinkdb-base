@@ -4,7 +4,7 @@ const quoteController = {};
 
 quoteController.index = async (ctx, next) => {
   const quotes = await Quote.all(ctx.db);
-  ctx._locals.quotes = quotes;
+  ctx._locals = quotes;
   await next();
 };
 
@@ -14,7 +14,7 @@ quoteController.show = async (ctx, next) => {
     if (!quote) {
       throw new Error('The requested resource does not exist.');
     }
-    ctx._locals.quote = [quote];
+    ctx._locals = [quote];
     await next();
   } catch (err) {
     ctx.status = 404;
@@ -31,7 +31,7 @@ quoteController.create = async (ctx, next) => {
       throw new Error('Something went wrong.');
     }
     ctx.status = 201;
-    ctx._locals.quote = [quote];
+    ctx._locals = [quote];
     await next();
   } catch (err) {
     ctx.status = 400;
@@ -47,7 +47,7 @@ quoteController.update = async (ctx, next) => {
     if (!quote) {
       throw new Error('The requested resource does not exist.');
     }
-    ctx._locals.quote = [quote];
+    ctx._locals = [quote];
     await next();
   } catch (err) {
     ctx.status = 404;
@@ -63,7 +63,7 @@ quoteController.delete = async (ctx, next) => {
     if (!deletedQuote) {
       throw new Error('The requested resource does not exist.');
     }
-    ctx._locals.quote = [deletedQuote];
+    ctx._locals = [deletedQuote];
     await next();
   } catch (err) {
     ctx.status = 404;
